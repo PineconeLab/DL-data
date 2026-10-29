@@ -3,6 +3,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { configured, publicConfig } from "@/lib/config";
 export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request });
+  // These standalone pages contain no private account data and need no Auth call.
+  if (["/start", "/heart-fair"].includes(request.nextUrl.pathname)) return response;
   if (!configured()) return response;
   const { url, key } = publicConfig();
   const supabase = createServerClient(url, key, {

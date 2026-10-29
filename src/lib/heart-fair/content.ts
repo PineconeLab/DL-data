@@ -58,7 +58,6 @@ export const fair = {
       title: "看着你笑，\n我也会开心",
       paragraphs: [
         "尤其是你笑起来的时候，我会觉得，原本有点疲惫的一天，好像也能变得轻松。",
-        "你写下的那些心里话，我也认真看了。它们让我更想了解你，了解你开心时的样子，也了解你那些不太容易说出口的想法。",
       ],
       next: "想和你说说以后",
     },
@@ -90,3 +89,21 @@ export const fair = {
   yes: "那我们，就从这里认真开始吧。",
   later: "好呀，按你的节奏来。谢谢你认真看完我的心意。",
 };
+
+// 两个轮播相互独立。每组可继续添加真实照片，空路径始终显示占位，不编造照片。
+export const meetingPhotos = photos.slice(0, 3);
+export const smilePhotos: FairPhoto[] = [
+  photos[3],
+  {
+    id: "smile-2",
+    label: "放一张你笑起来的照片",
+    src: "",
+    alt: "冰雪笑起来的照片（二）",
+  },
+  {
+    id: "smile-3",
+    label: "放一张你笑起来的照片",
+    src: "",
+    alt: "冰雪笑起来的照片（三）",
+  },
+];
