@@ -7,3 +7,6 @@ coverage/
 !.env.test.example
 *.tsbuildinfo
 .DS_Store
+
+# Deployment examples are safe to track; real deployment env files remain ignored.
+!deploy/.env.production.example

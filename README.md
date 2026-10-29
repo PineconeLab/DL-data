@@ -141,3 +141,7 @@ npm run test:db
 - 本地 HTTP：未配置 Supabase 的首页返回 200，`/api/bootstrap` 返回 503 和明确配置说明，未伪装数据读写成功。
 - 手机宽度浏览器：配置指引页面正常显示。
 - 未执行：真实 Supabase 的邮箱确认 / SSR Cookie / 双浏览器协同 / 跨连接并发 / 云端 Storage HTTP 权限验收，原因是尚未提供外部项目配置。已提供可选择运行的专用测试脚本及手动步骤。
+
+## GitLab 与外部服务器访问
+
+已补充 standalone Dockerfile、仅回环映射的 Compose、HTTPS 反向代理示例和手动 GitLab 镜像构建 job。详细步骤见 [deploy/README.md](deploy/README.md)。配置文件尚未执行远程部署；需要你自己的服务器、域名和访问方式，网站内容仍由 Supabase Auth 和 RLS 保护。

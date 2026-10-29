@@ -1,0 +1,8 @@
+# Replace days.example.com with your actual domain before starting Caddy.
+days.example.com {
+    # Caddy runs on the HOST, not inside the app container.
+    request_body {
+        max_size 6MB
+    }
+    reverse_proxy 127.0.0.1:3000
+}
