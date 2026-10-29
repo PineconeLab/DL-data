@@ -1,0 +1,616 @@
+.heart-fair {
+  --fair-blue: #1749b6;
+  --fair-dark: #173b8d;
+  --fair-pink: #ffe0eb;
+  background: #eeecfc;
+  color: var(--fair-dark);
+  font-size: 16px;
+  line-height: 1.85;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background-image: radial-gradient(
+    ellipse at 15% 10%,
+    #f8f6ff,
+    transparent 55%
+  );
+}
+.heart-fair button {
+  cursor: pointer;
+  font-family: inherit;
+}
+.heart-fair button:focus-visible,
+.fair-viewer button:focus-visible {
+  outline: 3px solid #f6bc38;
+  outline-offset: 5px;
+}
+.heart-fair button:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+.fair-outside {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #847ca5;
+}
+.fair-outside span:last-child {
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+.fair-paper {
+  background: #fffefa;
+  border-radius: 38px 43px 34px 40px;
+  box-shadow: 0 10px 45px #7d72bc19;
+  overflow: hidden;
+  border: 1px solid #fff;
+}
+.fair-paper:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%239a8d7c' filter='url(%23n)' opacity='.25' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.fair-back {
+  font-size: 12px;
+  color: #7d8fbd;
+  min-height: 40px;
+}
+.fair-small {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #8898bf;
+}
+.fair-icon {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: #e8f1ff;
+  color: #2353a3;
+  border: 0;
+}
+.fair-station {
+  display: inline-block;
+  padding: 5px 22px;
+  background: #ffe0ea;
+  border-radius: 46% 42% 35% 48%;
+  transform: rotate(-3deg);
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", cursive;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  box-shadow:
+    8px 2px 0 -3px #ffe9f0,
+    -7px 1px 0 -2px #fff0f5;
+}
+.fair-title-wrap {
+  position: relative;
+  margin: 23px auto 12px;
+  padding: 13px 0;
+}
+.fair-title {
+  position: relative;
+  z-index: 1;
+  color: #1042b1;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: clamp(34px, 7.9vw, 64px);
+  line-height: 1.28;
+  letter-spacing: 1px;
+  font-weight: 900;
+  transform: rotate(-2deg);
+  text-shadow: 0.6px 1px #2e61bc;
+  outline: none;
+}
+.fair-cloud:before {
+  content: "";
+  position: absolute;
+  inset: 0 -4%;
+  background: #dff5fc;
+  border-radius: 46% 54% 38% 43%/58% 39% 52% 40%;
+  transform: rotate(-4deg);
+  box-shadow: inset 0 5px 20px #c5edfb88;
+}
+.fair-cloud:after {
+  content: "";
+  position: absolute;
+  inset: 18% 8% -3%;
+  background: #dff5fc;
+  border-radius: 40% 50% 45% 45%;
+  z-index: 0;
+  transform: rotate(4deg);
+}
+.fair-subtitle {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 21px;
+  font-weight: 600;
+  margin: 24px 0 0;
+  letter-spacing: 2px;
+}
+.fair-pink {
+  background: #ffe5ef80;
+  border-radius: 24% 18% 28% 14%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 3px 8px;
+}
+.fair-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 22px;
+  background: #fff6a8;
+  border-radius: 35% 23% 34% 24%;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 13px;
+}
+.fair-doodles {
+  position: absolute;
+  left: -8%;
+  top: 13px;
+  width: 116%;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+.fair-scene {
+  margin: 24px -10px 20px;
+  transition: transform 0.8s;
+  animation: fair-float 6s ease-in-out infinite;
+}
+.fair-scene img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+  object-fit: contain;
+}
+.fair-close {
+  transform: scale(1.07);
+  animation: none;
+}
+.fair-ticket {
+  position: relative;
+  background: #fff9bb;
+  border: 2px dashed #a9c482;
+  border-radius: 8px 13px 10px 8px;
+  padding: 14px 22px 10px;
+  transform: rotate(-2deg);
+  text-align: center;
+  box-shadow: 4px 5px 0 #d9e6b750;
+}
+.fair-ticket-label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #73926e;
+}
+.fair-ticket > p {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 38px;
+  font-weight: 900;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.8;
+}
+.fair-ticket > p svg {
+  color: #f1939c;
+}
+.fair-ticket > span:not(:first-child) {
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.fair-ticket-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 10px;
+  color: #8e986e;
+  border-top: 1px dashed #c6cf90;
+  margin-top: 13px;
+  padding-top: 8px;
+  letter-spacing: 1px;
+}
+.fair-intro {
+  font-size: 15px;
+  color: #7889b3;
+  line-height: 1.9;
+  margin-top: 28px;
+}
+.fair-prose {
+  font-size: 17px;
+  line-height: 2.05;
+  letter-spacing: 0.4px;
+}
+.fair-prose p + p {
+  margin-top: 20px;
+}
+.fair-highlight {
+  background: #fff8b87d;
+  border-radius: 22px 15px 26px 12px;
+  padding: 12px 14px;
+}
+.fair-note {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.8;
+  margin: 28px 0 0;
+  text-align: center;
+}
+.fair-primary {
+  position: relative;
+  min-height: 59px;
+  padding: 14px 17px;
+  border: 0;
+  border-radius: 34px 29px 33px 25px;
+  background: #2057c4;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 0 0 3px #4773ce,
+    0 4px 0 #dce8ff;
+  transition: transform 0.2s;
+}
+.fair-primary:hover {
+  transform: translateY(-2px);
+  background: #194ab0;
+}
+.fair-primary:active {
+  transform: translateY(1px);
+}
+.fair-secondary {
+  min-height: 56px;
+  border: 2px solid #3a67b9;
+  border-radius: 28px 25px 30px 25px;
+  color: #2452a8;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 600;
+}
+.fair-progress button {
+  width: 9px;
+  height: 9px;
+  border: 0;
+  border-radius: 50%;
+  background: #dce2f0;
+  position: relative;
+  padding: 0;
+}
+.fair-progress button:after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+}
+.fair-progress button.active {
+  background: #3f66b8;
+  transform: scale(1.35);
+}
+.fair-page {
+  animation: fair-in 0.45s ease both;
+}
+.fair-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.1;
+  border: 3px solid #99c4f0;
+  border-radius: 17px 23px 18px 26px;
+  background: #e9f3fd;
+  padding: 10px;
+  box-shadow:
+    inset 0 0 0 4px #fffefa,
+    2px 3px 0 #d8e9f9;
+  transform: rotate(-1.5deg);
+}
+.fair-photo-large {
+  aspect-ratio: 1.65;
+  transform: rotate(1deg);
+}
+.fair-photo-empty {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #91acd2;
+}
+.fair-photo-empty span {
+  font-size: 14px;
+  color: #547bb6;
+  line-height: 1.6;
+}
+.fair-tape {
+  position: absolute;
+  z-index: 1;
+  right: -9px;
+  top: -8px;
+  width: 55px;
+  height: 19px;
+  background: #f9b9d4b0;
+  transform: rotate(28deg);
+  clip-path: polygon(
+    4% 0,
+    96% 0,
+    100% 13%,
+    95% 30%,
+    100% 50%,
+    95% 72%,
+    100% 100%,
+    0 100%,
+    4% 80%,
+    0 60%,
+    4% 40%,
+    0 15%
+  );
+}
+.fair-zoom {
+  position: absolute;
+  bottom: 11px;
+  right: 10px;
+  color: #8da9cc;
+}
+.fair-route {
+  position: relative;
+  margin-top: 30px;
+}
+.fair-route:before {
+  content: "";
+  position: absolute;
+  inset: 65px 7% 15px;
+  border: 2px dashed #f5b0c5;
+  border-radius: 47%;
+  transform: rotate(-9deg);
+  z-index: -1;
+}
+.fair-city + .fair-city {
+  margin-top: 32px;
+}
+.fair-city h2 {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-weight: 700;
+  font-size: 27px;
+  transform: rotate(-2deg);
+  margin-bottom: 12px;
+}
+.fair-city h2 span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  color: #889ab5;
+  letter-spacing: 0;
+}
+.fair-place {
+  text-align: center;
+  font-size: 15px;
+}
+.fair-place-sketch {
+  width: 100%;
+  max-width: 155px;
+  margin: auto;
+}
+.fair-place:nth-child(even) {
+  transform: rotate(3deg);
+}
+.fair-letter {
+  border-top: 1px dashed #b1c7e1;
+  padding-top: 25px;
+}
+.fair-signature {
+  display: block;
+  text-align: right;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 24px;
+  margin-top: 20px;
+}
+.fair-question {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif !important;
+  font-size: clamp(23px, 5.4vw, 32px) !important;
+  color: #1445a4;
+  font-weight: 700 !important;
+  text-align: center;
+  margin: 25px 0 !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0 !important;
+}
+.fair-response {
+  position: relative;
+  text-align: center;
+  background: #f3f7ff;
+  padding: 27px 18px;
+  border-radius: 23px;
+  color: #244da0;
+  font-size: 21px;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+}
+.fair-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.fair-confetti i {
+  position: absolute;
+  top: -15px;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  animation: fair-fall 2.2s ease-out both;
+}
+.fair-viewer {
+  border: 0;
+  padding: 20px;
+  border-radius: 22px;
+  color: #2852a1;
+  background: #fffefa;
+  width: min(92vw, 850px);
+  max-height: 90dvh;
+  margin: auto;
+}
+.fair-viewer::backdrop {
+  background: #172444b8;
+  backdrop-filter: blur(5px);
+}
+.fair-viewer-body {
+  position: relative;
+}
+.fair-viewer-body > .fair-icon {
+  margin-left: auto;
+  margin-bottom: 12px;
+}
+.fair-viewer-image {
+  position: relative;
+  height: min(63dvh, 600px);
+  background: #eaf3fd;
+  border-radius: 12px;
+}
+.fair-viewer p {
+  text-align: center;
+  font-size: 16px;
+  padding-top: 15px;
+}
+.fair-viewer .fair-photo-empty span {
+  font-size: 18px;
+}
+@keyframes fair-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fair-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -3px;
+  }
+}
+@keyframes fair-fall {
+  to {
+    transform: translateY(190px) rotate(200deg);
+    opacity: 0;
+  }
+}
+@media (min-width: 640px) {
+  .fair-paper {
+    padding-bottom: 34px;
+  }
+  .fair-prose {
+    font-size: 19px;
+  }
+  .fair-scene {
+    margin: 30px -20px;
+  }
+  .fair-title-wrap {
+    margin-top: 30px;
+  }
+  .fair-primary {
+    font-size: 22px;
+  }
+  .fair-photo-empty span {
+    font-size: 17px;
+  }
+  .fair-station {
+    font-size: 21px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heart-fair *,
+  .heart-fair *:before,
+  .heart-fair *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .fair-confetti {
+    display: none;
+  }
+}
+/* Text stays selectable; translucent grain gives the blue ink a dry-brush finish. */
+.fair-title {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.3' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%231143b4' d='M0 0h140v140H0z'/%3E%3Cpath filter='url(%23g)' opacity='.3' d='M0 0h140v140H0z'/%3E%3C/svg%3E");
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+.fair-intro {
+  font-size: 16px;
+}
+.fair-scene img {
+  min-height: 0;
+}
+.fair-place,
+.fair-photo-empty span {
+  font-size: 16px;
+}
+@media (max-width: 370px) {
+  .fair-title {
+    font-size: 32px;
+    letter-spacing: 0;
+  }
+  .fair-station {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .fair-outside {
+    letter-spacing: 0;
+  }
+  .fair-outside span:last-child {
+    font-size: 8px;
+  }
+  .fair-primary {
+    font-size: 17px;
+    padding-inline: 10px;
+  }
+  .fair-photo-empty {
+    gap: 7px;
+  }
+  .fair-photo-empty span {
+    font-size: 16px;
+  }
+  .fair-date {
+    font-size: 18px;
+  }
+}
+.fair-pair {
+  display: flex;
+  animation: none;
+}
+.fair-pair > span {
+  display: block;
+  width: 50%;
+  overflow: hidden;
+  transition: translate 0.9s ease;
+}
+.fair-pair > span img {
+  width: 200%;
+  max-width: none;
+}
+.fair-pair > span + span img {
+  margin-left: -100%;
+}
+.fair-pair-close > span:first-child {
+  translate: 8px 0;
+}
+.fair-pair-close > span:last-child {
+  translate: -8px 0;
+}
