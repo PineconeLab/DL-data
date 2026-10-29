@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { ArrowLeft, Music2, Pause } from "lucide-react";
 import {
   fair,
@@ -9,6 +9,7 @@ import {
   smilePhotos,
   type FairPhoto,
 } from "@/lib/heart-fair/content";
+import { armFairAudio, ensureFairAudio, pauseFairAudio, playFairAudio } from "@/lib/heart-fair/playback";
 import { PhotoViewer } from "./photo";
 import { PhotoCarousel } from "./carousel";
 const backgrounds = [
@@ -50,8 +51,7 @@ export function HeartFair() {
   const [answer, setAnswer] = useState<"yes" | "later" | null>(null);
   const [playing, setPlaying] = useState(false),
     [audioError, setAudioError] = useState(false);
-  const audio = useRef<HTMLAudioElement>(null),
-    heading = useRef<HTMLHeadingElement>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
   const stop = fair.stops[step];
   function go(n: number) {
     setStep(n);
@@ -61,18 +61,33 @@ export function HeartFair() {
     );
   }
   async function toggleMusic() {
-    if (!audio.current) return;
-    if (playing) {
-      audio.current.pause();
+    const el = ensureFairAudio();
+    if (!el) return;
+    if (!el.paused) {
+      pauseFairAudio();
       setPlaying(false);
-    } else
-      try {
-        await audio.current.play();
-        setPlaying(true);
-      } catch {
-        setAudioError(true);
-      }
+      return;
+    }
+    try {
+      await playFairAudio();
+      setPlaying(true);
+    } catch {
+      setAudioError(true);
+    }
   }
+  useEffect(() => {
+    const el = ensureFairAudio();
+    if (!el) return;
+    armFairAudio();
+    const sync = () => setPlaying(!el.paused);
+    el.addEventListener("play", sync);
+    el.addEventListener("pause", sync);
+    sync();
+    return () => {
+      el.removeEventListener("play", sync);
+      el.removeEventListener("pause", sync);
+    };
+  }, []);
   const nextRects: Record<number, number[]> = {
     0: [176, 1348, 670, 125],
     1: [166, 1317, 691, 133],
@@ -131,14 +146,21 @@ export function HeartFair() {
             </button>
           )}
           {step === 0 && (
-            <Box rect={[114, 1040, 790, 250]}>
+            <Box className="fair-home-slot" rect={[96, 1046, 832, 246]}>
               <button
-                className="reference-hit"
+                className="reference-hit fair-home-photo"
                 onClick={() => setPhoto(photos[0])}
                 aria-label="放大查看：放一张我们的合照"
               >
                 {photos[0].src && (
-                  <Image src={photos[0].src} alt={photos[0].alt} fill sizes="80vw" className="object-contain bg-blue-50" />
+                  <Image
+                    src={photos[0].src}
+                    alt={photos[0].alt}
+                    fill
+                    sizes="80vw"
+                    unoptimized
+                    className="object-cover"
+                  />
                 )}
               </button>
             </Box>
@@ -253,6 +275,7 @@ export function HeartFair() {
           {fair.audio && (
             <button
               className="generated-music"
+              data-music=""
               onClick={toggleMusic}
               aria-label={playing ? "暂停音乐" : "播放音乐"}
             >
@@ -260,14 +283,6 @@ export function HeartFair() {
             </button>
           )}
         </article>
-        {fair.audio && (
-          <audio
-            ref={audio}
-            src={fair.audio}
-            onEnded={() => setPlaying(false)}
-            onError={() => setAudioError(true)}
-          />
-        )}
         {audioError && <p role="status">音乐暂时无法播放。</p>}
       </div>
       {photo && <PhotoViewer photo={photo} onClose={() => setPhoto(null)} />}

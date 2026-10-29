@@ -87,6 +87,13 @@
 .reference-hit:hover {
   background: #ffffff0a;
 }
+.fair-home-slot {
+  z-index: 2;
+}
+.fair-home-photo {
+  overflow: hidden;
+  border-radius: 42px;
+}
 .prototype-back {
   position: absolute;
   z-index: 3;

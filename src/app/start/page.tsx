@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowUpRight, BookOpen, Sparkles } from "lucide-react";
+import { EntryLink } from "@/components/heart-fair/entry-link";
 
 export const metadata: Metadata = {
   title: "选择入口 · 我们的小空间",
@@ -21,12 +21,12 @@ export default function StartPage() {
         <p className="mt-3 text-base text-[#858095]">两个入口，收藏不同的小心意。</p>
         <nav aria-label="选择页面" className="mt-8 grid gap-5 sm:grid-cols-2">
           {entries.map(({ href, title, text, note, icon: Icon, color }) => (
-            <Link key={href} href={href} prefetch={false} className="group rounded-3xl border border-white bg-white/85 p-6 shadow-sm outline-offset-4 focus-visible:outline-2 focus-visible:outline-[#5976bb]">
+            <EntryLink key={href} href={href} prime={href === "/heart-fair"} className="group rounded-3xl border border-white bg-white/85 p-6 shadow-sm outline-offset-4 focus-visible:outline-2 focus-visible:outline-[#5976bb]">
               <span className={`mb-6 inline-flex rounded-2xl p-3 ${color}`}><Icon size={26} aria-hidden="true" /></span>
               <h2 className="text-xl">{title}</h2>
               <p className="mt-3 text-base leading-7 text-[#807c8b]">{text}</p>
               <span className="mt-7 flex items-center justify-between text-sm text-[#546ca0]">{note}<ArrowUpRight size={20} aria-hidden="true" /></span>
-            </Link>
+            </EntryLink>
           ))}
         </nav>
       </div>

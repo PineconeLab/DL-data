@@ -4,7 +4,7 @@ export const photos: FairPhoto[] = [
   {
     id: "together",
     label: "放一张我们的合照",
-    src: "",
+    src: "/heart-fair/photos/together-home.jpg",
     alt: "我们的第一次合照",
   },
   { id: "first", label: "第一次见面的你", src: "", alt: "第一次见面的冰雪" },
@@ -20,7 +20,9 @@ export const fair = {
   name: "冰雪的心动游园会",
   people: "松松 × 冰雪",
   subtitle: "这一次，只为你开放。",
-  audio: "", // 可选：public 下的音频路径；留空时不显示音乐按钮。
+  audio: "/heart-fair/bgm.mp3",
+  audioIntro: 5,
+  audioStart: 52,
   cities: ["上海", "南京"],
   stops: [
     { label: "欢迎入场", title: "冰雪的\n心动游园会", next: "出发，去看看" },
@@ -90,8 +92,8 @@ export const fair = {
   later: "好呀，按你的节奏来。谢谢你认真看完我的心意。",
 };
 
-// 两个轮播相互独立。每组可继续添加真实照片，空路径始终显示占位，不编造照片。
-export const meetingPhotos = photos.slice(0, 3);
+// 首页合照只用于第一页，不进入见面轮播。
+export const meetingPhotos = photos.slice(1, 3);
 export const smilePhotos: FairPhoto[] = [
   photos[3],
   {
