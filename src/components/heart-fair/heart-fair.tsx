@@ -193,7 +193,7 @@ export function HeartFair() {
                         alt={p.alt}
                         fill
                         sizes="40vw"
-                        className="object-contain bg-blue-50"
+                        className="object-cover"
                       />
                     )}
                   </button>

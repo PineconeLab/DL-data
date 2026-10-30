@@ -7,12 +7,22 @@ export const photos: FairPhoto[] = [
     src: "/heart-fair/photos/together-home.jpg",
     alt: "我们的第一次合照",
   },
-  { id: "first", label: "第一次见面的你", src: "", alt: "第一次见面的冰雪" },
-  { id: "moment", label: "那天的小瞬间", src: "", alt: "第一次见面的小瞬间" },
+  {
+    id: "first",
+    label: "第一次见面的你",
+    src: "/heart-fair/photos/firstSee.jpg",
+    alt: "第一次见面的冰雪",
+  },
+  {
+    id: "moment",
+    label: "那天的小瞬间",
+    src: "/heart-fair/photos/moment.jpg",
+    alt: "第一次见面的小瞬间",
+  },
   {
     id: "smile",
     label: "放一张你笑起来的照片",
-    src: "",
+    src: "/heart-fair/photos/smile.jpg",
     alt: "冰雪笑起来的样子",
   },
 ];
@@ -92,20 +102,39 @@ export const fair = {
   later: "好呀，按你的节奏来。谢谢你认真看完我的心意。",
 };
 
-// 首页合照只用于第一页，不进入见面轮播。
-export const meetingPhotos = photos.slice(1, 3);
+// 首页合照只用于第一页。第二站轮播使用见面当天的照片。
+export const meetingPhotos: FairPhoto[] = [
+  {
+    id: "meet-5458",
+    label: "第一次见面",
+    src: "/heart-fair/photos/IMG_5458.jpg",
+    alt: "第一次见面",
+  },
+  {
+    id: "meet-5459",
+    label: "第一次见面",
+    src: "/heart-fair/photos/IMG_5459.jpg",
+    alt: "第一次见面",
+  },
+  {
+    id: "meet-5461",
+    label: "第一次见面",
+    src: "/heart-fair/photos/IMG_5461.png",
+    alt: "第一次见面",
+  },
+  {
+    id: "meet-5462",
+    label: "第一次见面",
+    src: "/heart-fair/photos/IMG_5462.png",
+    alt: "第一次见面",
+  },
+];
 export const smilePhotos: FairPhoto[] = [
+  {
+    id: "smile-1",
+    label: "放一张你笑起来的照片",
+    src: "/heart-fair/photos/smile_1.jpg",
+    alt: "冰雪笑起来的样子",
+  },
   photos[3],
-  {
-    id: "smile-2",
-    label: "放一张你笑起来的照片",
-    src: "",
-    alt: "冰雪笑起来的照片（二）",
-  },
-  {
-    id: "smile-3",
-    label: "放一张你笑起来的照片",
-    src: "",
-    alt: "冰雪笑起来的照片（三）",
-  },
 ];

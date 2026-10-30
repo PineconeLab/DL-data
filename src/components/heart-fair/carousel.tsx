@@ -11,7 +11,7 @@ export function PhotoContent({ photo }: { photo: FairPhoto }) {
       alt={photo.alt}
       fill
       sizes="(max-width: 540px) 82vw, 430px"
-      className="object-contain"
+      className="object-cover"
       draggable={false}
       onError={() => setFailed(true)}
     />
